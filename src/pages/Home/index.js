@@ -3,6 +3,7 @@ import { Box, HStack, Pressable, Icon, Avatar, FlatList } from 'native-base'
 import { Feather } from '@expo/vector-icons'
 import { data } from '../../utils/list'
 import Story from '../../components/Story'
+import Feed from '../../components/Feed'
 
 const Home = () => {
   return (
@@ -41,6 +42,14 @@ const Home = () => {
           data={data}
           renderItem={({ item }) => <Story data={item} />}
           showsHorizontalScrollIndicator={false}
+        />
+      </Box>
+
+      <Box paddingX={4}>
+        <FlatList
+          data={data}
+          renderItem={({ item }) => <Feed data={item} />}
+          showsVerticalScrollIndicator={false}
         />
       </Box>
     </Box>
