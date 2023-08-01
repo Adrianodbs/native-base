@@ -1,6 +1,8 @@
 import React from 'react'
-import { Box, HStack, Pressable, Icon, Avatar } from 'native-base'
+import { Box, HStack, Pressable, Icon, Avatar, FlatList } from 'native-base'
 import { Feather } from '@expo/vector-icons'
+import { data } from '../../utils/list'
+import Story from '../../components/Story'
 
 const Home = () => {
   return (
@@ -32,6 +34,15 @@ const Home = () => {
           </Pressable>
         </Box>
       </HStack>
+
+      <Box paddingX={4} flexDir="row">
+        <FlatList
+          horizontal={true}
+          data={data}
+          renderItem={({ item }) => <Story data={item} />}
+          showsHorizontalScrollIndicator={false}
+        />
+      </Box>
     </Box>
   )
 }
